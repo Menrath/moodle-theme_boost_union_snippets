@@ -1,0 +1,25 @@
+{
+  "name": "moodle-theme_boost_union_snippets",
+  "version": "1.0.0",
+  "description": "## About",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moodle-an-hochschulen/moodle-theme_boost_union_snippets.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moodle-an-hochschulen/moodle-theme_boost_union_snippets/issues"
+  },
+  "homepage": "https://github.com/moodle-an-hochschulen/moodle-theme_boost_union_snippets#readme",
+  "devDependencies": {
+    "grunt": "^1.6.1",
+    "grunt-stylelint": "^0.20.1",
+    "postcss-scss": "^4.0.9"
+  }
+}

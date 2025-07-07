@@ -1,34 +1,30 @@
-name: PHPCS SCSS Linting
+name: SCSS Linting
 
 on:
   push:
     branches:
       - main
   pull_request:
+    branches:
+      - main
 
 jobs:
-  phpcs:
+  lint-scss:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up PHP
-        uses: shivammathur/setup-php@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          php-version: '8.1'
-          coverage: none
+          node-version: '22'
 
-      - name: Install PHP CodeSniffer and Moodle Coding Standard
+      - name: Install npm dependencies
         run: |
-          composer global config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
-          composer global config minimum-stability dev
-          composer global require moodlehq/moodle-cs
+          npm install
 
-      - name: Add Composer global bin to PATH
-        run: echo "${{ github.workspace }}/vendor/bin" >> $GITHUB_PATH
-
-      - name: Run PHPCS on SCSS files
+      - name: Run SCSS Linting
         run: |
-          phpcs --standard=Moodle --extensions=scss snippets/
+          npx grunt lint-scss
