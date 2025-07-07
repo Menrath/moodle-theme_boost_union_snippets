@@ -1,0 +1,32 @@
+name: PHPCS SCSS Linting
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  phpcs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          coverage: none
+
+      - name: Install PHP CodeSniffer and Moodle Coding Standard
+        run: |
+          composer global require "moodle/moodle-cs"
+
+      - name: Add Composer global bin to PATH
+        run: echo "${{ github.workspace }}/vendor/bin" >> $GITHUB_PATH
+
+      - name: Run PHPCS on SCSS files
+        run: |
+          phpcs --standard=Moodle --extensions=scss snippets/
