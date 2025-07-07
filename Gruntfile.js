@@ -1,7 +1,6 @@
 module.exports = function(grunt) {
     // Load the plugins
     grunt.loadNpmTasks('grunt-stylelint');
-    grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Project configuration
     grunt.initConfig({
