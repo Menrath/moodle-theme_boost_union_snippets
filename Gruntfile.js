@@ -11,12 +11,12 @@ module.exports = function(grunt) {
                     quietDeprecationWarnings: true,
                     customSyntax: 'postcss-scss',
                 },
-                src: ['snippets/**/*.scss'], // Adjust the path to your SCSS files
+                src: ['snippets/**/*.scss']
             }
         },
         watch: {
             scss: {
-                files: ['snippets/**/*.scss'], // Watch SCSS files in the snippets folder
+                files: ['snippets/**/*.scss'],
                 tasks: ['stylelint:scss']
             }
         }
