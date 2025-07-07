@@ -27,4 +27,4 @@ jobs:
 
       - name: Run SCSS Linting
         run: |
-          npx grunt stylelint-scss
+          grunt stylelint-scss
